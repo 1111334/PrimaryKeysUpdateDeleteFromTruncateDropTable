@@ -1,0 +1,59 @@
+CREATE TABLE customers (
+  id INT NOT NULL AUTO_INCREMENT,
+  Name VARCHAR(255) NOT NULL,
+  Surname VARCHAR(255) NOT NULL,
+  Email VARCHAR(255) NOT NULL,
+  Dob DATE NOT NULL,
+  Favourite_Meal_Name VARCHAR(255),
+  PRIMARY KEY (id)
+);
+
+SELECT * FROM customers;
+
+INSERT INTO customers(NAME, Surname, Email, Dob, Favourite_Meal_Name)
+VALUES('Maicol', 'Cassarà', 'mike12@gmail.com', '1998/12/14', 'Roast Beef');
+
+UPDATE customers
+SET Name = 'Mirco', Surname = 'D''agostino', Email = 'mirco4@gmail.com', Dob = '1998/04/07', Favourite_Meal_Name = 'Beef'
+WHERE id = 1;
+
+DELETE FROM customers
+WHERE id IN (2, 3, 4);
+
+TRUNCATE TABLE customers;
+
+
+(Table Customers)
+CREATE TABLE Customers (
+ customer_id INT NOT NULL AUTO_INCREMENT,
+ first_name VARCHAR(255) NOT NULL,
+ last_name VARCHAR(255) NOT NULL,
+ email VARCHAR(255) NOT NULL,
+ PRIMARY KEY (customer_id)
+);
+customer_id: costituisce una buona chiave primaria.
+
+(Table Products)
+CREATE TABLE Products (
+ product_name VARCHAR(255) NOT NULL,
+ product_description VARCHAR(255) NOT NULL,
+ product_price DECIMAL(10, 2) NOT NULL,
+ product_quantity INT NOT NULL
+);
+Nessuna delle colonne specificate va bene come chiave primaria.
+
+(Table Orders)
+CREATE TABLE Orders (
+ order_id INT NOT NULL AUTO_INCREMENT,
+ customer_id INT NOT NULL,
+ expected_arrival_time DATE
+);
+order_id: costituisce una buona chiave primaria.
+
+(Table Product_Orders)
+CREATE TABLE Product_Orders (
+ order_id INT NOT NULL AUTO_INCREMENT,
+ product_name VARCHAR(255) NOT NULL,
+ total_revenue DOUBLE
+);
+order_id: costituisce una buona chiave primaria.
